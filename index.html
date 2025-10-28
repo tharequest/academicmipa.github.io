@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Informasi Akademik FMIPA Untan</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    background: #f5f6fa;
+    color: #333;
+  }
+
+  /* ==== HEADER ==== */
+  header {
+    width: 100%;
+    background: #003366;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: #fff;
+  }
+
+  header img {
+    height: 60px;
+  }
+
+  .right-header {
+    text-align: right;
+  }
+
+  /* ==== INFO BAR (marquee + jam) ==== */
+  .info-bar-container {
+    width: 100%;
+    background: #00264d;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    font-size: 14px;
+  }
+
+  .marquee-section {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  marquee {
+    color: #f0f0f0;
+  }
+
+  .clock-section {
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* ==== MAIN LAYOUT ==== */
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: 350px;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .active {
+    display: block;
+  }
+
+  /* Slider kanan dua bagian */
+  .right-sliders {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .right-sliders .slide {
+    height: 165px;
+  }
+
+  /* ==== FOOTER ==== */
+  footer {
+    text-align: center;
+    padding: 15px;
+    background: #003366;
+    color: #fff;
+    font-size: 13px;
+  }
+
+  /* ==== RESPONSIVE ==== */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+    .info-bar-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    .clock-section {
+      align-self: flex-end;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <img src="https://i.ibb.co.com/Cs6dFKHC/FMIPA-Logo.png" alt="Logo FMIPA Untan">
+  <div class="right-header">
+    <div id="datetime"></div>
+  </div>
+</header>
+
+<!-- ===== INFO BAR ===== -->
+<div class="info-bar-container">
+  <div class="marquee-section">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      <b>Info Penting:</b> Selamat datang di Portal Informasi Akademik & Kemahasiswaan FMIPA Untan! 
+      Pengumuman terbaru dapat dilihat pada bagian Info Akademik dan Info Kemahasiswaan.
+    </marquee>
+  </div>
+  <div class="clock-section">
+    <span id="tanggal"></span> | <span id="jam"></span>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main>
+  <!-- Slider kiri -->
+  <div class="slider" id="slider-left">
+    <div class="slide active"><img src="https://picsum.photos/id/1011/800/400" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/id/1025/800/400" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/id/1035/800/400" alt=""></div>
+  </div>
+
+  <!-- Slider kanan (dua bagian) -->
+  <div class="right-sliders">
+    <div class="slider" id="slider-top">
+      <div class="slide active"><img src="https://picsum.photos/id/1040/600/300" alt=""></div>
+      <div class="slide"><img src="https://picsum.photos/id/1050/600/300" alt=""></div>
+      <div class="slide"><img src="https://picsum.photos/id/1060/600/300" alt=""></div>
+    </div>
+
+    <div class="slider" id="slider-bottom">
+      <div class="slide active"><img src="https://picsum.photos/id/1070/600/300" alt=""></div>
+      <div class="slide"><img src="https://picsum.photos/id/1080/600/300" alt=""></div>
+      <div class="slide"><img src="https://picsum.photos/id/1090/600/300" alt=""></div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  &copy; 2025 FMIPA Universitas Tanjungpura | Portal Informasi Akademik & Kemahasiswaan
+</footer>
+
+<!-- ===== SCRIPT JAM & SLIDER ===== -->
+<script>
+function updateLiveClock() {
+  const now = new Date();
+  const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+  const day = days[now.getDay()];
+  const date = now.getDate();
+  const month = months[now.getMonth()];
+  const year = now.getFullYear();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  document.getElementById('tanggal').textContent = `${day}, ${date} ${month} ${year}`;
+  document.getElementById('jam').textContent = `Pukul: ${hours}:${minutes}:${seconds}`;
+}
+updateLiveClock();
+setInterval(updateLiveClock, 1000);
+
+// Slider otomatis
+function startSlider(sliderId, interval = 4000) {
+  const slides = document.querySelectorAll(`#${sliderId} .slide`);
+  let index = 0;
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, interval);
+}
+
+startSlider('slider-left', 4000);
+startSlider('slider-top', 3500);
+startSlider('slider-bottom', 4500);
+</script>
+
+</body>
+</html>
