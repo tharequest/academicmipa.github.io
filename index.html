@@ -24,19 +24,58 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 25px;
     color: #fff;
+    position: relative;
   }
 
   header img {
-    height: 60px;
+    height: 65px;
   }
 
-  .right-header {
-    text-align: right;
+  /* ==== NAVIGATION ==== */
+  nav {
+    flex: 1;
+    margin-left: 30px;
   }
 
-  /* ==== INFO BAR (marquee + jam) ==== */
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  nav ul li a:hover {
+    color: #ffcc00;
+  }
+
+  /* ==== HAMBURGER MENU ==== */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+  }
+
+  .menu-toggle span {
+    height: 3px;
+    background: white;
+    margin: 4px 0;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  /* ==== INFO BAR ==== */
   .info-bar-container {
     width: 100%;
     background: #00264d;
@@ -70,10 +109,26 @@
     padding: 20px;
   }
 
+  /* ==== SLIDER WRAPPER ==== */
+  .slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .slider-title {
+    background: #003366;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 6px 6px 0 0;
+    font-size: 16px;
+  }
+
   .slider {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
 
@@ -93,7 +148,6 @@
     display: block;
   }
 
-  /* Slider kanan dua bagian */
   .right-sliders {
     display: flex;
     flex-direction: column;
@@ -104,7 +158,6 @@
     height: 165px;
   }
 
-  /* ==== FOOTER ==== */
   footer {
     text-align: center;
     padding: 15px;
@@ -114,17 +167,65 @@
   }
 
   /* ==== RESPONSIVE ==== */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    header {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    nav {
+      display: none;
+      width: 100%;
+      background: #00264d;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 20px;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
     main {
       grid-template-columns: 1fr;
     }
+
     .info-bar-container {
       flex-direction: column;
       align-items: flex-start;
       gap: 5px;
     }
+
     .clock-section {
       align-self: flex-end;
+    }
+
+    .slide {
+      height: 220px !important;
     }
   }
 </style>
@@ -134,9 +235,22 @@
 <!-- ===== HEADER ===== -->
 <header>
   <img src="Frame 1.png" alt="Logo FMIPA Untan">
-  <div class="right-header">
-    <div id="datetime"></div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
+  <nav id="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Akademik</a></li>
+      <li><a href="#">Kemahasiswaan</a></li>
+      <li><a href="#">Pengumuman</a></li>
+      <li><a href="#">Kontak</a></li>
+    </ul>
+  </nav>
 </header>
 
 <!-- ===== INFO BAR ===== -->
@@ -155,35 +269,43 @@
 <!-- ===== MAIN CONTENT ===== -->
 <main>
   <!-- Slider kiri -->
-  <div class="slider" id="slider-left">
-    <div class="slide active"><img src="https://picsum.photos/id/1011/800/400" alt=""></div>
-    <div class="slide"><img src="https://picsum.photos/id/1025/800/400" alt=""></div>
-    <div class="slide"><img src="https://picsum.photos/id/1035/800/400" alt=""></div>
+  <div class="slider-wrapper">
+    <div class="slider-title">📰 Pengumuman</div>
+    <div class="slider" id="slider-left">
+      <div class="slide active"><img src="https://picsum.photos/id/1011/800/400" alt=""></div>
+      <div class="slide"><img src="https://picsum.photos/id/1025/800/400" alt=""></div>
+      <div class="slide"><img src="https://picsum.photos/id/1035/800/400" alt=""></div>
+    </div>
   </div>
 
-  <!-- Slider kanan (dua bagian) -->
+  <!-- Slider kanan -->
   <div class="right-sliders">
-    <div class="slider" id="slider-top">
-      <div class="slide active"><img src="https://picsum.photos/id/1040/600/300" alt=""></div>
-      <div class="slide"><img src="https://picsum.photos/id/1050/600/300" alt=""></div>
-      <div class="slide"><img src="https://picsum.photos/id/1060/600/300" alt=""></div>
+    <div class="slider-wrapper">
+      <div class="slider-title">📚 Info Akademik</div>
+      <div class="slider" id="slider-top">
+        <div class="slide active"><img src="https://picsum.photos/id/1040/600/300" alt=""></div>
+        <div class="slide"><img src="https://picsum.photos/id/1050/600/300" alt=""></div>
+        <div class="slide"><img src="https://picsum.photos/id/1060/600/300" alt=""></div>
+      </div>
     </div>
 
-    <div class="slider" id="slider-bottom">
-      <div class="slide active"><img src="https://picsum.photos/id/1070/600/300" alt=""></div>
-      <div class="slide"><img src="https://picsum.photos/id/1080/600/300" alt=""></div>
-      <div class="slide"><img src="https://picsum.photos/id/1090/600/300" alt=""></div>
+    <div class="slider-wrapper">
+      <div class="slider-title">🎓 Info Kemahasiswaan</div>
+      <div class="slider" id="slider-bottom">
+        <div class="slide active"><img src="https://picsum.photos/id/1070/600/300" alt=""></div>
+        <div class="slide"><img src="https://picsum.photos/id/1080/600/300" alt=""></div>
+        <div class="slide"><img src="https://picsum.photos/id/1090/600/300" alt=""></div>
+      </div>
     </div>
   </div>
 </main>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   &copy; 2025 FMIPA Universitas Tanjungpura | Portal Informasi Akademik & Kemahasiswaan
 </footer>
 
-<!-- ===== SCRIPT JAM & SLIDER ===== -->
 <script>
+/* ==== LIVE CLOCK ==== */
 function updateLiveClock() {
   const now = new Date();
   const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -201,7 +323,7 @@ function updateLiveClock() {
 updateLiveClock();
 setInterval(updateLiveClock, 1000);
 
-// Slider otomatis
+/* ==== SLIDER ==== */
 function startSlider(sliderId, interval = 4000) {
   const slides = document.querySelectorAll(`#${sliderId} .slide`);
   let index = 0;
@@ -215,9 +337,16 @@ function startSlider(sliderId, interval = 4000) {
 startSlider('slider-left', 4000);
 startSlider('slider-top', 3500);
 startSlider('slider-bottom', 4500);
+
+/* ==== MENU TOGGLE ==== */
+const menuToggle = document.getElementById("menu-toggle");
+const navbar = document.getElementById("navbar");
+
+menuToggle.addEventListener("click", () => {
+  menuToggle.classList.toggle("active");
+  navbar.style.display = navbar.style.display === "block" ? "none" : "block";
+});
 </script>
 
 </body>
 </html>
-
-
