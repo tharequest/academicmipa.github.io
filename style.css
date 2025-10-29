@@ -5,7 +5,7 @@ body {
 }
 
 header {
-  background-color: #003366;
+  background-color: #0000ff;
   color: white;
   display: flex;
   align-items: center;
@@ -149,3 +149,4 @@ footer {
     flex-direction: column;
   }
 }
+
