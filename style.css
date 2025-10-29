@@ -32,23 +32,23 @@ header {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 40px; /* jarak antara logo dan menu */
+  gap: 40px;
 }
 
 header img {
-  height: 40px;
+  height: 60px;
 }
 
-/* === NAVIGATION === */
 nav ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 nav ul li {
-  margin-right: 20px;
+  position: relative;
 }
 
 nav ul li a {
@@ -56,7 +56,8 @@ nav ul li a {
   color: white;
   font-weight: bold;
   font-size: 16px;
-  padding: 8px 12px;
+  padding: 10px 15px;
+  display: block;
   border-radius: 6px;
   transition: background 0.3s, color 0.3s;
 }
@@ -66,7 +67,27 @@ nav ul li a:hover {
   color: #aeefff;
 }
 
-/* === MENU TOGGLE (UNTUK HP) === */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #004080;
+  border-radius: 6px;
+  min-width: 200px;
+  z-index: 99;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.dropdown-menu li a {
+  padding: 10px 15px;
+  font-weight: normal;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -81,7 +102,7 @@ nav ul li a:hover {
   border-radius: 3px;
 }
 
-/* === RESPONSIVE (HP) === */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -99,6 +120,18 @@ nav ul li a:hover {
     display: flex;
   }
 
+  .dropdown-menu {
+    position: static;
+    background: #00264d;
+    box-shadow: none;
+    display: none;
+    flex-direction: column;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+
   .menu-toggle {
     display: flex;
   }
@@ -108,6 +141,7 @@ nav ul li a:hover {
     align-items: flex-start;
   }
 }
+
 
 
 /* === INFO BAR (diperbarui) === */
@@ -211,5 +245,6 @@ footer {
     flex-direction: column;
   }
 }
+
 
 
