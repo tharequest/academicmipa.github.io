@@ -1,5 +1,19 @@
+@font-face {
+  font-family: 'Coinbase';
+  src: url('fonts/Coinbase_Sans-Regular-web-1.32.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Coinbase';
+  src: url('fonts/Coinbase_Sans-Bold-web-1.32.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Coinbase', sans-serif;
   margin: 0;
   background-color: #f4f4f4;
 }
@@ -14,7 +28,7 @@ header {
 }
 
 header img {
-  height: 60px;
+  height: 40px;
 }
 
 nav ul {
@@ -30,7 +44,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: white;
+  color: #0d0d0d;
   font-weight: bold;
 }
 
@@ -111,7 +125,7 @@ main {
 }
 
 h2 {
-  background-color: #0000ff;
+  background-color: #003366;
   color: white;
   padding: 8px;
   border-radius: 5px 5px 0 0;
@@ -149,6 +163,3 @@ footer {
     flex-direction: column;
   }
 }
-
-
-
