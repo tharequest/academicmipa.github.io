@@ -48,6 +48,11 @@ nav ul {
   padding: 0;
 }
 
+nav ul li {
+  position: relative;
+}
+
+/* tombol menu utama */
 nav ul li a {
   text-decoration: none;
   background: #0000ff;
@@ -56,11 +61,13 @@ nav ul li a {
   font-size: 16px;
   padding: 10px 15px;
   border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
+  display: inline-block;
+  transition: none;
 }
 
+/* hover menu utama (tidak berubah warna) */
 nav ul li a:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: #0000ff;
   color: #ffffff;
 }
 
@@ -69,98 +76,97 @@ nav ul li a:hover {
   position: relative;
 }
 
+/* wadah dropdown */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 5px);
+  top: calc(100% + 5px); /* muncul ke bawah, tidak menimpa tombol */
   left: 0;
+  display: flex;
+  flex-direction: column; /* tampil ke bawah */
   background: #ffffff;
-  min-width: 220px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 230px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 0;
   padding: 0;
   margin: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+  transform: translateY(-5px);
+  transition: all 0.25s ease;
   z-index: 99;
 }
 
+/* item dropdown */
 .dropdown-menu li {
   list-style: none;
 }
 
 .dropdown-menu li a {
   display: block;
-  color: #0000ff;
   padding: 10px 20px;
+  color: #0000ff; /* teks biru */
+  background: transparent;
   text-decoration: none;
   font-weight: 500;
-  line-height: 1.4;
-  transition: background 0.3s ease;
+  border-radius: 0;
+  transition: background 0.2s ease;
 }
 
+/* hover item dropdown */
 .dropdown-menu li a:hover {
-  background: rgba(0, 0, 0, 0.1);
+	color: #0000ff;
+  background: rgba(0, 0, 0, 0.08); /* abu transparan */
 }
 
-/* Animasi dropdown */
+/* muncul saat hover */
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* === MENU TOGGLE === */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-}
-
-.menu-toggle span {
-  height: 3px;
-  width: 25px;
-  background: #0000ff;
-  margin: 4px;
-  border-radius: 3px;
-}
-
-/* === RESPONSIVE MODE === */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .header-left {
-    width: 100%;
-    justify-content: space-between;
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: #0000ff;
+    margin: 4px 0;
+    border-radius: 3px;
   }
 
   nav ul {
     display: none;
     flex-direction: column;
-    background-color: #003366;
+    background: #ffffff;
     position: absolute;
     left: 0;
-    top: 70px;
+    top: 60px;
     width: 100%;
-    text-align: center;
+    text-align: left;
     padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   nav ul.active {
     display: flex;
   }
 
-  .menu-toggle {
-    display: flex;
-  }
-
+  /* dropdown di mobile tampil di bawah menu utama */
   .dropdown-menu {
     position: static;
-    background: #f9f9f9;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: #ffffff;
     box-shadow: none;
     display: none;
-    flex-direction: column;
   }
 
   .dropdown.open .dropdown-menu {
@@ -169,13 +175,14 @@ nav ul li a:hover {
 
   .dropdown-menu li a {
     color: #0000ff;
-    font-size: 15px;
+    background: transparent;
   }
 
   .dropdown-menu li a:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.08);
   }
 }
+
 
 /* === INFO BAR === */
 .info-bar-container {
@@ -259,5 +266,28 @@ footer {
 @media (max-width: 768px) {
   main {
     flex-direction: column;
+  }
+}
+/* === FIX: Dropdown dan menu responsif tidak tertutup oleh slider / marquee === */
+@media (max-width: 768px) {
+  header {
+    position: relative;
+    z-index: 2000; /* pastikan header di atas semua elemen lain */
+  }
+
+  nav {
+    position: absolute;
+    top: 100%; /* muncul tepat di bawah header */
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 1999; /* lebih tinggi dari slider dan marquee */
+  }
+
+  .info-bar-container,
+  main,
+  footer {
+    position: relative;
+    z-index: 1; /* biar semua elemen di bawah menu */
   }
 }
