@@ -18,28 +18,29 @@ body {
   background-color: #f4f4f4;
 }
 
-/* === Header === */
+/* === HEADER === */
 header {
   background-color: #ffffff;
   color: #003366;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* ubah dari space-between ke flex-start */
+  justify-content: space-between;
   padding: 10px 30px;
   flex-wrap: wrap;
-  gap: 20px; /* beri jarak antar elemen */
+  gap: 20px;
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 40px; /* jarak antara logo dan menu */
+  gap: 40px;
 }
 
 header img {
   height: 40px;
 }
 
+/* === MENU UTAMA === */
 nav ul {
   display: flex;
   list-style: none;
@@ -59,69 +60,81 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-   color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
 }
 
-/* Dropdown utama */
+/* === DROPDOWN MENU === */
 .dropdown {
   position: relative;
 }
 
 .dropdown-menu {
-  display: none;
   position: absolute;
-  top: 100%;              /* muncul tepat di bawah tombol utama */
-  left: 0;                /* sejajar horizontal dengan tombol */
-  background: rgba(0, 51, 102, 0.95);  /* warna biru transparan lembut */
-  border-radius: 8px;
-  min-width: 250px;
+  top: calc(100% + 5px);
+  left: 0;
+  background: #ffffff;
+  min-width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
   z-index: 99;
-  padding: 8px 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Tampilan item dalam dropdown */
 .dropdown-menu li {
   list-style: none;
 }
 
 .dropdown-menu li a {
   display: block;
-  color: #ffffff;
+  color: #0000ff;
   padding: 10px 20px;
   text-decoration: none;
-  transition: background 0.3s, color 0.3s;
   font-weight: 500;
+  line-height: 1.4;
+  transition: background 0.3s ease;
 }
 
 .dropdown-menu li a:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #aeefff;
+  background: rgba(0, 0, 0, 0.1);
 }
 
-/* Saat hover dropdown utama */
+/* Animasi dropdown */
 .dropdown:hover .dropdown-menu {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-
-/* === MENU TOGGLE (UNTUK HP) === */
+/* === MENU TOGGLE === */
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .menu-toggle span {
   height: 3px;
   width: 25px;
-  background: white;
+  background: #0000ff;
   margin: 4px;
   border-radius: 3px;
 }
 
-/* === RESPONSIVE (HP) === */
+/* === RESPONSIVE MODE === */
 @media (max-width: 768px) {
+  .header-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   nav ul {
     display: none;
     flex-direction: column;
@@ -138,9 +151,13 @@ nav ul li a:hover {
     display: flex;
   }
 
+  .menu-toggle {
+    display: flex;
+  }
+
   .dropdown-menu {
     position: static;
-    background: #00264d;
+    background: #f9f9f9;
     box-shadow: none;
     display: none;
     flex-direction: column;
@@ -150,17 +167,17 @@ nav ul li a:hover {
     display: flex;
   }
 
-  .menu-toggle {
-    display: flex;
+  .dropdown-menu li a {
+    color: #0000ff;
+    font-size: 15px;
   }
 
-  .header-left {
-    flex-direction: column;
-    align-items: flex-start;
+  .dropdown-menu li a:hover {
+    background: rgba(0, 0, 0, 0.1);
   }
 }
 
-/* === INFO BAR (diperbarui) === */
+/* === INFO BAR === */
 .info-bar-container {
   display: flex;
   align-items: center;
@@ -185,6 +202,7 @@ nav ul li a:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* === MAIN === */
 main {
   display: flex;
   justify-content: space-between;
@@ -229,6 +247,7 @@ h2 {
   border-radius: 5px 5px 0 0;
 }
 
+/* === FOOTER === */
 footer {
   text-align: center;
   padding: 15px;
@@ -236,32 +255,9 @@ footer {
   color: white;
 }
 
-/* Responsive */
+/* === RESPONSIVE SLIDER LAYOUT === */
 @media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #003366;
-    position: absolute;
-    right: 20px;
-    top: 70px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  nav ul.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
   main {
     flex-direction: column;
   }
 }
-
-
-
-
