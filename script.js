@@ -40,17 +40,19 @@ updateLiveClock();
 setInterval(updateLiveClock, 1000);
 
 // === Simple Slider ===
-const sliders = document.querySelectorAll('.slider');
-sliders.forEach(slider => {
+function createSlider(sliderId, interval = 3000) {
+  const slides = document.querySelectorAll(`#${sliderId} img`);
   let index = 0;
-  const images = slider.querySelectorAll('img');
-  if (images.length === 0) return;
-  
-  images[index].classList.add('active');
-  
+  slides[index].classList.add("active");
+
   setInterval(() => {
-    images[index].classList.remove('active');
-    index = (index + 1) % images.length;
-    images[index].classList.add('active');
-  }, 3000);
-});
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, interval);
+}
+
+// Jalankan kedua slider
+createSlider("slider-pengumuman", 8000);
+createSlider("slider-akademik", 8000);
+
