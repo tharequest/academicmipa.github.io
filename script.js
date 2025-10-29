@@ -1,3 +1,18 @@
+// === Responsive Menu Toggle ===
+const menuToggle = document.getElementById('menu-toggle');
+const navUl = document.querySelector('nav ul');
+menuToggle.addEventListener('click', () => {
+  navUl.classList.toggle('active');
+});
+
+// === Dropdown toggle (HP) ===
+const dropdown = document.querySelector('.dropdown');
+dropdown.addEventListener('click', (e) => {
+  // Cegah langsung link ke #
+  e.preventDefault();
+  dropdown.classList.toggle('open');
+});
+
 // === Live Clock ===
 function updateLiveClock() {
   const now = new Date();
@@ -38,3 +53,4 @@ sliders.forEach(slider => {
     images[index].classList.add('active');
   }, 3000);
 });
+
