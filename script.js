@@ -1,6 +1,7 @@
 // === Responsive Menu Toggle ===
 const menuToggle = document.getElementById('menu-toggle');
 const navUl = document.querySelector('nav ul');
+
 menuToggle.addEventListener('click', () => {
   navUl.classList.toggle('active');
 });
@@ -8,7 +9,6 @@ menuToggle.addEventListener('click', () => {
 // === Dropdown toggle (HP) ===
 const dropdown = document.querySelector('.dropdown');
 dropdown.addEventListener('click', (e) => {
-  // Cegah langsung link ke #
   e.preventDefault();
   dropdown.classList.toggle('open');
 });
@@ -33,18 +33,13 @@ function updateLiveClock() {
 updateLiveClock();
 setInterval(updateLiveClock, 1000);
 
-// === Responsive Menu Toggle ===
-const menuToggle = document.getElementById('menu-toggle');
-const navUl = document.querySelector('nav ul');
-menuToggle.addEventListener('click', () => {
-  navUl.classList.toggle('active');
-});
-
 // === Simple Slider ===
 const sliders = document.querySelectorAll('.slider');
 sliders.forEach(slider => {
   let index = 0;
   const images = slider.querySelectorAll('img');
+  if (images.length === 0) return; // jika tidak ada gambar, skip
+  
   images[index].classList.add('active');
   
   setInterval(() => {
@@ -53,4 +48,3 @@ sliders.forEach(slider => {
     images[index].classList.add('active');
   }, 3000);
 });
-
