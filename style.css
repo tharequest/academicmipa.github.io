@@ -20,75 +20,90 @@ body {
 
 /* === Header === */
 header {
-  background-color: #f2f2f2;
-  color: white;
+  background-color: #ffffff;
+  color: #003366;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start; /* ubah dari space-between ke flex-start */
   padding: 10px 30px;
   flex-wrap: wrap;
+  gap: 20px; /* beri jarak antar elemen */
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 40px; /* jarak antara logo dan menu */
 }
 
 header img {
   height: 40px;
 }
 
-/* === NAVIGATION === */
 nav ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative;
-}
-
-nav ul li {
-  position: relative;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #0a0a0a;
+  background: #0000ff;
+  color: #ffffff;
   font-weight: bold;
   font-size: 16px;
   padding: 10px 15px;
-  display: block;
   border-radius: 6px;
   transition: background 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
-  background: rgba(255,255,255,0.15);
-  color: #0000ff;
+   color: rgb(255, 255, 255);
 }
 
-/* === DROPDOWN === */
+/* Dropdown utama */
+.dropdown {
+  position: relative;
+}
+
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 40px;
-  left: 0;
-  background: #f3f3f3;
-  border-radius: 6px;
-  min-width: 200px;
+  top: 100%;              /* muncul tepat di bawah tombol utama */
+  left: 0;                /* sejajar horizontal dengan tombol */
+  background: rgba(0, 51, 102, 0.95);  /* warna biru transparan lembut */
+  border-radius: 8px;
+  min-width: 250px;
   z-index: 99;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  padding: 8px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Tampilan item dalam dropdown */
+.dropdown-menu li {
+  list-style: none;
 }
 
 .dropdown-menu li a {
-  padding: 10px 15px;
-  font-weight: normal;
+  display: block;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  font-weight: 500;
 }
 
+.dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #aeefff;
+}
+
+/* Saat hover dropdown utama */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
 
 /* === MENU TOGGLE (UNTUK HP) === */
 .menu-toggle {
