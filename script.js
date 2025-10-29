@@ -2,16 +2,22 @@
 const menuToggle = document.getElementById('menu-toggle');
 const navUl = document.querySelector('nav ul');
 
-menuToggle.addEventListener('click', () => {
-  navUl.classList.toggle('active');
-});
+if (menuToggle && navUl) {
+  menuToggle.addEventListener('click', () => {
+    navUl.classList.toggle('active');
+  });
+}
 
 // === Dropdown toggle (HP) ===
 const dropdown = document.querySelector('.dropdown');
-dropdown.addEventListener('click', (e) => {
-  e.preventDefault();
-  dropdown.classList.toggle('open');
-});
+if (dropdown) {
+  dropdown.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      dropdown.classList.toggle('open');
+    }
+  });
+}
 
 // === Live Clock ===
 function updateLiveClock() {
@@ -38,7 +44,7 @@ const sliders = document.querySelectorAll('.slider');
 sliders.forEach(slider => {
   let index = 0;
   const images = slider.querySelectorAll('img');
-  if (images.length === 0) return; // jika tidak ada gambar, skip
+  if (images.length === 0) return;
   
   images[index].classList.add('active');
   
