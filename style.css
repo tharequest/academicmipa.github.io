@@ -54,7 +54,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #717886;
+  color: #0a0a0a;
   font-weight: bold;
   font-size: 16px;
   padding: 10px 15px;
@@ -65,7 +65,7 @@ nav ul li a {
 
 nav ul li a:hover {
   background: rgba(255,255,255,0.15);
-  color: #aeefff;
+  color: #0000ff;
 }
 
 /* === DROPDOWN === */
@@ -246,5 +246,6 @@ footer {
     flex-direction: column;
   }
 }
+
 
 
