@@ -36,7 +36,7 @@ header {
 }
 
 header img {
-  height: 60px;
+  height: 40px;
 }
 
 /* === NAVIGATION === */
@@ -74,7 +74,7 @@ nav ul li a:hover {
   position: absolute;
   top: 40px;
   left: 0;
-  background: #004080;
+  background: #0e0e0;
   border-radius: 6px;
   min-width: 200px;
   z-index: 99;
@@ -246,6 +246,7 @@ footer {
     flex-direction: column;
   }
 }
+
 
 
 
