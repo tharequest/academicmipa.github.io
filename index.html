@@ -4,79 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal Informasi Akademik FMIPA Untan</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
 
+<body>
   <!-- HEADER -->
   <header>
-  <div class="header-left">
-    <img src="images/pfp/avp1.png" alt="Logo FMIPA Untan">
+    <div class="header-left">
+      <img src="images/pfp/avp1.jpg" alt="Logo FMIPA Untan">
 
-    <nav>
-      <ul>
-        <li class="dropdown">
-          <a href="#">Jenis Pelayanan ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Pembuatan Surat Keterangan Lulus</a></li>
-            <li><a href="#">Pembuatan Surat Aktif Kuliah</a></li>
-            <li><a href="#">Surat P</a></li>
-            <li><a href="#">Surat 2</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="#">Jenis Pelayanan ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Pembuatan Surat Keterangan Lulus</a></li>
+              <li><a href="#">Pembuatan Surat Aktif Kuliah</a></li>
+              <li><a href="#">Surat P</a></li>
+              <li><a href="#">Surat 2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+	
+	<!-- jam dikanan -->
+    <div class="clock-header">
+      <span id="tanggal"></span> | <span id="jam"></span>
+    </div>
+	
+	<!--toggle menu -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
 
-  <!-- JAM DI KANAN -->
-  <div class="clock-header">
-    <span id="tanggal"></span> | <span id="jam"></span>
-  </div>
+  <!-- ANIMASI PIXEL ATAS -->
+  <section>
+    <canvas id="pixel-top"></canvas>
+  </section>
 
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span><span></span><span></span>
-  </div>
-</header>
-<section> <!-- ANIMASI PIXEL ATAS -->
-<canvas id="pixel-top"></canvas></section>
- 
   <!-- MAIN CONTENT -->
   <main class="slider-layout">
   
-  <!-- Kolom kiri - Pengumuman -->
-  <div class="slider-column">
-    <h2 class="kiri-pengumuman">Pengumuman</h2>
-    <div class="image-slider" id="slider-pengumuman">
-      <img src="images/pengumuman/slide1.jpg" alt="Pengumuman 1">
-      <img src="images/pengumuman/slide2.jpg" alt="Pengumuman 2">
-      <img src="images/pengumuman/slide3.jpg" alt="Pengumuman 3">
+    <!-- Kolom kiri -->
+    <div class="slider-column">
+      <h2 class="kiri-pengumuman">Pengumuman</h2>
+      <div class="image-slider" id="slider-pengumuman">
+        <img src="images/pengumuman/slide1.jpg" alt="Pengumuman 1">
+        <img src="images/pengumuman/slide2.jpg" alt="Pengumuman 2">
+        <img src="images/pengumuman/slide3.jpg" alt="Pengumuman 3">
+      </div>
     </div>
-  </div>
 
-  <!-- Kolom kanan - Info Akademik & Kemahasiswaan -->
-  <div class="slider-column">
-    <h2 class="kanan-info">Info Akademik & Kemahasiswaan</h2>
-    <div class="image-slider" id="slider-akademik">
-      <img src="images/info/inslide1.jpg" alt="Akademik 1">
-      <img src="images/info/inslide2.jpg" alt="Akademik 2">
-      <img src="images/pengumuman/slide3.jpg" alt="Akademik 3">
+    <!-- Kolom kanan -->
+    <div class="slider-column">
+      <h2 class="kanan-info">Info Akademik & Kemahasiswaan</h2>
+      <div class="image-slider" id="slider-akademik">
+        <img src="images/info/inslide1.jpg" alt="Akademik 1">
+        <img src="images/info/inslide2.jpg" alt="Akademik 2">
+        <img src="images/info/inslide3.jpg" alt="Akademik 3">
+      </div>
     </div>
-  </div>
-</main>
-
+  </main>
 
   <footer>
-  <canvas id="pixel-footer"></canvas>
+    <canvas id="pixel-footer"></canvas>
   </footer>
 
-  <script src="script.js"></script>
-  <script src="pixel.js"></script>
-
-
+  <!-- SCRIPT -->
+  <script src="js/menu.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/pixel.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
