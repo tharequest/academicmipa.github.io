@@ -12,5 +12,13 @@ function openGoogleForm2() {
     'width=700,height=800,scrollbars=yes,resizable=yes'
   );
 }
+function openGoogleForm3() {
+  window.open(
+    'https://docs.google.com/forms/d/e/1FAIpQLSdQoxaDKvz17ElZSTW7zuV4p-9SMfIAqIz015WU0LiEa6FywA/viewform',
+    'popupForm',
+    'width=700,height=800,scrollbars=yes,resizable=yes'
+  );
+}
+
 
 
