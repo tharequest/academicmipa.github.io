@@ -15,12 +15,11 @@
 body {
   font-family: 'Coinbase', sans-serif;
   margin: 0;
-  background-color: #f4f4f4;
+  background-color: #ffffff;
 }
 
 header {
   background-color: #ffffff;
-  color: #003366;
   display: flex;
   align-items: center;
   justify-content: space-between; /* kiri-kanan */
@@ -46,10 +45,10 @@ header {
   font-weight: bold;
   color: #0000ff;
   background: #ffffff;
-  padding: 6px 12px;
+  padding: 10px 12px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  font-size: 15px;
+  font-size: 12px;
 }
 
 /* Responsif HP */
@@ -85,9 +84,9 @@ nav ul li a {
   background: #0000ff;
   color: #ffffff;
   font-weight: bold;
-  font-size: 14px;
-  padding: 10px 15px;
-  border-radius: 6px;
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
   display: inline-block;
   transition: none;
 }
@@ -221,10 +220,10 @@ nav ul li a:hover {
   font-size: 14px;
 }
 
-.marquee-section {
+/* .marquee-section {
   flex: 1;
   margin-right: 20px;
-}
+} */
 
 .clock-section {
   font-weight: bold;
@@ -274,9 +273,16 @@ main {
   display: block;
 }
 
-h2 {
-  background-color: #ffffff;
-  color: #000000;
+.kiri-pengumuman {
+  background-color: #323232;
+  color: #ffffff;
+  padding: 8px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+.kanan-info {
+  background-color: #f2f2f2;
+  color: #555555;
   padding: 8px;
   box-shadow: 0 2px 3px rgba(0,0,0,0.1);
   border-radius: 8px;
@@ -344,6 +350,8 @@ footer {
   min-width: 300px;
   border-radius: 12px;
   overflow: hidden;
+  margin-left: 18px;
+  margin-right: 18px;
 }
 
 .slider-column h2 {
@@ -351,7 +359,7 @@ footer {
   font-size: 22px;
   margin-bottom: 10px;
   border-bottom: 2px solid white;
-  padding-bottom: 8px;
+  padding-bottom: 8px ;
 }
 
 /* === SLIDER GAMBAR === */
@@ -385,4 +393,10 @@ footer {
   .slider-column h2 {
     font-size: 20px;
   }
+}
+#pixel-top, #pixel-footer {
+  width: 100%;
+  height: 100px;
+  display: block;
+  background: #ffffff;
 }
