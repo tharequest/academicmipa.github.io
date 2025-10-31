@@ -20,5 +20,25 @@ function openGoogleForm3() {
   );
 }
 
+// === POPUP GAMBAR ===
+function openImagePopup(src) {
+  const popup = document.getElementById("imagePopup");
+  const popupImg = document.getElementById("popupImg");
+  popup.style.display = "block";
+  popupImg.src = src;
+}
+
+function closePopup() {
+  document.getElementById("imagePopup").style.display = "none";
+}
+
+// Tutup popup jika klik di luar gambar
+window.onclick = function (event) {
+  const popup = document.getElementById("imagePopup");
+  if (event.target === popup) {
+    popup.style.display = "none";
+  }
+};
+
 
 
