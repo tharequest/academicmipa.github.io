@@ -55,4 +55,3 @@ function createSlider(sliderId, interval = 3000) {
 // Jalankan kedua slider
 createSlider("slider-pengumuman", 8000);
 createSlider("slider-akademik", 8000);
-
