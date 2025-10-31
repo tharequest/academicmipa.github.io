@@ -1,0 +1,38 @@
+# ============================================
+# Git Line Endings Configuration for Web Projects
+# ============================================
+
+# Default: Normalize all text files to LF in repo
+* text=auto eol=lf
+
+# --------------------------------------------
+# Web-related files (force LF)
+# --------------------------------------------
+*.html text eol=lf
+*.htm  text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.json text eol=lf
+*.xml  text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.php  text eol=lf
+*.sql  text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.sh   text eol=lf
+
+# --------------------------------------------
+# Windows scripts (force CRLF)
+# --------------------------------------------
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# --------------------------------------------
+# Prevent Git from changing binary files
+# --------------------------------------------
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg bin*
