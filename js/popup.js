@@ -5,10 +5,11 @@ function openGoogleForm1() {
     'width=700,height=800,scrollbars=yes,resizable=yes'
   );
 }
-function 2openGoogleForm() {
+function openGoogleForm2() {
   window.open(
     'https://docs.google.com/forms/d/e/1FAIpQLSeContohURLForm/viewform',
     'popupForm',
     'width=700,height=800,scrollbars=yes,resizable=yes'
   );
 }
+
