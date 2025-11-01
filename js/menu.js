@@ -8,13 +8,14 @@ if (menuToggle && navUl) {
   });
 }
 
-// === Dropdown toggle (HP) ===
-const dropdown = document.querySelector('.dropdown');
-if (dropdown) {
-  dropdown.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
-    }
+const menuItems = document.querySelectorAll('nav ul li a');
+
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // hapus 'active' dari semua li
+    document.querySelectorAll('nav ul li').forEach(li => li.classList.remove('active'));
+
+    // tambahkan ke item yang diklik
+    item.parentElement.classList.add('active');
   });
-}
+});
