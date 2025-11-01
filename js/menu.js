@@ -8,25 +8,31 @@ if (menuToggle && navUl) {
   });
 }
 
-const menuItems = document.querySelectorAll('nav ul li a');
+// === Menu Active Logic ===
+const menuItems = document.querySelectorAll('nav > ul > li > a');
 
 menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    // hapus 'active' dari semua li
+  item.addEventListener('click', (e) => {
+    // Abaikan klik dari dropdown items
+    if (item.nextElementSibling && item.nextElementSibling.classList.contains('dropdown-menu')) {
+      e.preventDefault(); // biar dropdown bisa dibuka di mobile
+    }
+
+    // Hapus active dari semua menu utama
     document.querySelectorAll('nav ul li').forEach(li => li.classList.remove('active'));
 
-    // tambahkan ke item yang diklik
+    // Tambahkan active ke li yang diklik
     item.parentElement.classList.add('active');
   });
 });
 
-const dropdown = document.querySelector('.dropdown');
-if (dropdown) {
-  dropdown.addEventListener('click', (e) => {
+// === Dropdown toggle (mobile) ===
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(drop => {
+  drop.addEventListener('click', (e) => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
-      dropdown.classList.toggle('open');
+      drop.classList.toggle('open');
     }
   });
-}
-
+});
