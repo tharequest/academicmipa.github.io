@@ -19,3 +19,14 @@ menuItems.forEach(item => {
     item.parentElement.classList.add('active');
   });
 });
+
+const dropdown = document.querySelector('.dropdown');
+if (dropdown) {
+  dropdown.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      dropdown.classList.toggle('open');
+    }
+  });
+}
+
