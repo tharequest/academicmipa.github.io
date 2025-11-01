@@ -129,7 +129,9 @@ nav ul li.active.dropdown > a {
 }
 
 /* === Responsive Menu dan Dropdown Menu === */
+/* === Responsive Menu dan Dropdown Menu === */
 @media (max-width: 768px) {
+  /* 🔹 TOMBOL TOGGLE (ikon garis tiga) */
   .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -144,6 +146,7 @@ nav ul li.active.dropdown > a {
     border-radius: 3px;
   }
 
+  /* 🔹 UL utama menu (navigasi) */
   nav ul {
     display: none;
     flex-direction: column;
@@ -155,24 +158,61 @@ nav ul li.active.dropdown > a {
     text-align: left;
     padding: 10px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* tambahkan agar selalu di atas elemen lain */
   }
 
   nav ul.active {
     display: flex;
   }
-  
+
+  /* 🔹 Link menu utama (warna biru hanya aktif) */
   nav ul li a {
-  color: #0000ff;
-  text-decoration: none;
-  background: #ffffff;
-  font-weight: bold;
-  font-size: 12px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  display: inline-block;
-  transition: none;
+    color: #0000ff;
+    text-decoration: none;
+    background: #ffffff;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: none;
+  }
+
+  /* === 🔸 TAMBAHAN UNTUK DROPDOWN === */
+
+  /* dropdown menu jadi tidak absolute supaya ikut layout (tidak menutupi) */
+  .dropdown-menu {
+    position: static; /* dari absolute → static */
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: #ffffff;
+    display: none; /* sembunyikan default */
+    flex-direction: column;
+    padding-left: 15px; /* sedikit indentasi biar beda */
+  }
+
+  /* muncul ketika dropdown di-klik */
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+
+  /* perbaiki tampilan link di dalam dropdown */
+  .dropdown-menu li a {
+    padding: 8px 20px;
+    font-size: 13px;
+    color: #0000ff;
+  }
+
+  /* hilangkan hover effect di mobile */
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
   }
 }
+
 
 /* === Clock === */
 .clock-header {
