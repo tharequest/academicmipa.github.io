@@ -37,7 +37,7 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 20px;
+  gap: 10px;
 }
 
 nav ul li {
@@ -45,17 +45,32 @@ nav ul li {
 }
 
 /* tombol menu utama */
+/* style default */
 nav ul li a {
   text-decoration: none;
-  background: #0000ff;
-  color: #ffffff;
+  background: transparent;
+  color: #0000ff;
   font-weight: bold;
   font-size: 12px;
   padding: 10px 12px;
   border-radius: 8px;
   display: inline-block;
-  transition: none;
+  transition: all 0.2s ease;
 }
+
+/* hover: biru dengan teks putih */
+nav ul li a:hover {
+  background: #0000ff;
+  color: #ffffff;
+}
+
+/* menu aktif */
+nav ul li.active > a,
+nav ul li.active.dropdown > a {
+  background: #0000ff;
+  color: #ffffff;
+}
+
 
 /* === DROPDOWN MENU === */
 .dropdown {
@@ -65,7 +80,7 @@ nav ul li a {
 /* wadah dropdown */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 5px); /* muncul ke bawah, tidak menimpa tombol */
+  top: 100%; /* muncul ke bawah, tidak menimpa tombol */
   left: 0;
   display: flex;
   flex-direction: column; /* tampil ke bawah */
@@ -80,6 +95,7 @@ nav ul li a {
   transform: translateY(-5px);
   transition: all 0.25s ease;
   z-index: 99;
+  pointer-events: none;
 }
 
 /* item dropdown */
@@ -109,6 +125,7 @@ nav ul li a {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* === Responsive Menu dan Dropdown Menu === */
@@ -295,4 +312,3 @@ nav ul li a {
   display: block;
   background: #ffffff;
 }
-
