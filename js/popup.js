@@ -1,20 +1,7 @@
-function openGoogleForm1() {
+// == Popup google form == //
+function openGoogleForm(url) {
   window.open(
-    'https://docs.google.com/forms/d/e/1FAIpQLSfcv_u0UlgJgJ_PuKC_ELfI5UUwLufISUdXlNl37VD_NMSAOg/viewform',
-    'popupForm',
-    'width=700,height=800,scrollbars=yes,resizable=yes'
-  );
-}
-function openGoogleForm2() {
-  window.open(
-    'https://docs.google.com/forms/d/e/1FAIpQLSeleQzeEElYtt8PoW8tHm5wL4t6GJbDzfRjhQ6Bwn3KHtSzbg/viewform',
-    'popupForm',
-    'width=700,height=800,scrollbars=yes,resizable=yes'
-  );
-}
-function openGoogleForm3() {
-  window.open(
-    'https://docs.google.com/forms/d/e/1FAIpQLSdQoxaDKvz17ElZSTW7zuV4p-9SMfIAqIz015WU0LiEa6FywA/viewform',
+    url,
     'popupForm',
     'width=700,height=800,scrollbars=yes,resizable=yes'
   );
@@ -39,6 +26,22 @@ window.onclick = function (event) {
     popup.style.display = "none";
   }
 };
+
+//popup PDF 
+function openPDFPopup(pdfUrl) {
+  // Ukuran jendela popup
+  const width = 800;
+  const height = 600;
+  const left = (screen.width / 2) - (width / 2);
+  const top = (screen.height / 2) - (height / 2);
+
+  // Buka jendela popup
+  window.open(
+    pdfUrl,
+    "_blank",
+    `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`
+  );
+}
 
 
 
