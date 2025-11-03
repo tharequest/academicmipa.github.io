@@ -247,25 +247,24 @@ nav ul li.active.dropdown > a {
 /* === Slider Main Layout === */
 
 main.slider-layout {
-  flex: 1; /* isi ruang di antara header dan footer */
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: nowrap; /* pastikan tetap sejajar di desktop */
   gap: 40px;
-  padding: 40px 60px;
-  box-sizing: border-box;
-  max-width: 1600px; /* biar tidak terlalu melebar di layar 4K */
+  padding: 40px 80px;
+  max-width: 1600px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
-/* === Kolom kiri/kanan === */
+/* === KOLOM === */
 .slider-column {
-  flex: 1 1 48%; /* dua kolom sejajar */
+  flex: 1 1 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
+  min-width: 0; /* penting agar tidak overflow */
 }
 
 /* === Judul box === */
@@ -289,37 +288,34 @@ main.slider-layout {
 }
 
 /* === SLIDER GAMBAR === */
+/* === SLIDER === */
 .image-slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9; /* GANTI height fixed dengan rasio proporsional */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #ffffff;
-  border-radius: 10px;
+  border-radius: 12px;
+  background: #fff;
 }
 
 .image-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* gambar akan menyesuaikan area */
   transition: opacity 0.6s ease, transform 0.3s ease;
-  cursor: default;
-  pointer-events: none;
 }
-
 .image-slider img.active {
   opacity: 1;
-  z-index: 2;
-  cursor: pointer;
   pointer-events: auto;
+  cursor: pointer;
 }
 
 .image-slider img.active:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* === FOOTER === */
@@ -403,6 +399,20 @@ footer {
   }
 }
 
+/* === RESPONSIVE: untuk layar kecil (tablet & HP) === */
+@media (max-width: 1024px) {
+  main.slider-layout {
+    flex-wrap: wrap; /* ubah jadi vertikal */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .slider-column {
+    flex: 1 1 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
 /* === Canvas pixel === */
 #pixel-top, #pixel-footer {
   width: 100%;
@@ -410,4 +420,5 @@ footer {
   display: block;
   background: #ffffff;
 }
+
 
