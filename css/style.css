@@ -248,24 +248,27 @@ nav ul li.active.dropdown > a {
 
 main.slider-layout {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* agar tetap rata tengah di layar besar */
   align-items: flex-start;
-  flex-wrap: nowrap; /* pastikan tetap sejajar di desktop */
   gap: 40px;
-  padding: 40px 80px;
-  max-width: 1600px;
+  padding: 40px 60px;
+  max-width: 1800px;
   margin: 0 auto;
+  flex-wrap: wrap;
   box-sizing: border-box;
 }
 
 /* === KOLOM === */
 .slider-column {
-  flex: 1 1 50%;
+  flex: 1 1 48%;
+  min-width: 600px;
+  max-width: 850px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 0; /* penting agar tidak overflow */
+  box-sizing: border-box;
 }
+
 
 /* === Judul box === */
 .kiri-pengumuman, .kanan-info {
@@ -288,7 +291,6 @@ main.slider-layout {
 }
 
 /* === SLIDER GAMBAR === */
-/* === SLIDER === */
 .image-slider {
   position: relative;
   width: 100%;
@@ -308,6 +310,7 @@ main.slider-layout {
   left: 0;
   transition: opacity 0.6s ease, transform 0.3s ease;
 }
+
 .image-slider img.active {
   opacity: 1;
   pointer-events: auto;
@@ -399,18 +402,18 @@ footer {
   }
 }
 
-/* === RESPONSIVE: untuk layar kecil (tablet & HP) === */
 @media (max-width: 1024px) {
   main.slider-layout {
-    flex-wrap: wrap; /* ubah jadi vertikal */
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
     padding: 20px;
   }
 
   .slider-column {
     flex: 1 1 100%;
+    min-width: 100%;
     max-width: 700px;
-    margin: 0 auto;
   }
 }
 /* === Canvas pixel === */
@@ -420,5 +423,6 @@ footer {
   display: block;
   background: #ffffff;
 }
+
 
 
