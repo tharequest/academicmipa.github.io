@@ -297,6 +297,8 @@ main.slider-layout {
   border-radius: 12px;
   background: #fff;
   transition: transform 0.3s ease;
+  cursor: default; /* tidak bisa klik saat non-aktif */
+  pointer-events: none; /* gambar non-aktif tidak menerima klik */
 }
 
 .image-slider img {
@@ -312,8 +314,9 @@ main.slider-layout {
 
 .image-slider img.active {
   opacity: 1;
-  pointer-events: auto;
-  cursor: pointer;
+  z-index: 2;
+  cursor: pointer; /* berubah jadi tangan telunjuk saat aktif */
+  pointer-events: auto; /* bisa diklik */
 }
 
 .image-slider:hover {
@@ -440,6 +443,7 @@ footer {
   display: block;
   background: #ffffff;
 }
+
 
 
 
