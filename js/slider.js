@@ -15,8 +15,8 @@ function createSlider(sliderId, interval = 6500, delay = 0) {
   }, delay);
 }
 
-// === Panggilan dengan delay berbeda ===
-createSlider("slider-pengumuman", 9000, 0);       // mulai langsung
-createSlider("slider-akademik", 8000, 2500);      // mulai 2.5 detik kemudian
-createSlider("slider-kemahasiswaan", 8000, 4500); // kalau ada slider lain
+// // === Panggilan dengan delay berbeda ===
+// createSlider("slider-pengumuman", 9000, 0);       // mulai langsung
+// createSlider("slider-akademik", 8000, 2500);      // mulai 2.5 detik kemudian
+// //createSlider("slider-kemahasiswaan", 8000, 4500); // kalau ada slider lain
 
