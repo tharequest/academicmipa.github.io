@@ -15,6 +15,14 @@ function openImagePopup(src) {
   popupImg.src = src;
 }
 
+// === POPUP GAMBAR DARI DROPDOWN ===
+function openImagePopupByPath(imagePath) {
+  const popup = document.getElementById("imagePopup");
+  const popupImg = document.getElementById("popupImg");
+  popup.style.display = "block";
+  popupImg.src = imagePath;
+}
+
 function closePopup() {
   document.getElementById("imagePopup").style.display = "none";
 }
@@ -42,6 +50,7 @@ function openPDFPopup(pdfUrl) {
     `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`
   );
 }
+
 
 
 
