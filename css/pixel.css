@@ -1,0 +1,23 @@
+/* === Canvas pixel === */
+#pixel-top, #pixel-footer {
+  width: 100%;
+  height: 100px;
+  display: block;
+  background: #ffffff;
+}
+
+/* === FOOTER === */
+footer {
+  margin-top: auto;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  padding: 10px 0;
+}
+
+#pixel-footer {
+  width: 100%;
+  height: 100px;
+  display: block;
+}

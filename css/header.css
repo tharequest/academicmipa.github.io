@@ -1,0 +1,47 @@
+/* === Header === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+}
+header img {
+  height: 40px;
+}
+
+/* === menu disebelah logo == */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* === Clock === */
+.clock-header {
+  margin-left: auto; /* dorong ke kanan */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  font-weight: bold;
+  color: #0000ff;
+  background: #ffffff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 12px;
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+  .clock-header {
+    order: 3; /* pindah ke bawah di HP */
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}

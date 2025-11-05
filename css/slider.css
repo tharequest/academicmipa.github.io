@@ -1,0 +1,158 @@
+/* === Slider Main Layout === */
+main.slider-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 60px 100px;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+.slider-column {
+  flex: 1 1 45%;
+  max-width: 850px;
+  min-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* === Judul box === */
+.kiri-pengumuman, .kanan-info {
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.kiri-pengumuman {
+  background-color: #323232;
+  color: #ffffff;
+}
+
+.kanan-info {
+  background-color: #f2f2f2;
+  color: #555555;
+}
+
+/* === SLIDER GAMBAR === */
+.image-slider {
+  border-radius: 8px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 0.3s ease;
+  cursor: default;
+  pointer-events: none;
+}
+
+.image-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.6s ease, transform 0.3s ease;
+}
+
+.image-slider img.active {
+  opacity: 1;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.image-slider:hover {
+  transform: scale(1.01);
+}
+
+.image-slider img.active:hover {
+  transform: scale(1.02);
+}
+
+/* === Tombol Panah Slider === */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 255, 0.6);
+  color: white;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 255, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+/* Responsif untuk tombol */
+@media (max-width: 768px) {
+  .slider-btn {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+}
+
+/* === Navigasi Kotak Nomor Slider === */
+.slider-nav {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.slider-nav button {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  background: #fafafa;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 8px;
+  font-size: 12px;
+  font-family: monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 32px;
+}
+
+.slider-nav button:hover {
+  background: #e6e6e6;
+}
+
+.slider-nav button.active {
+  background: #0000ff;
+  color: #ffffff;
+  border-color: #0000ff;
+}
