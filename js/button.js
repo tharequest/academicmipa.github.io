@@ -4,7 +4,7 @@ document.querySelectorAll('.image-slider').forEach((slider, i) => {
   let current = 0;
   let interval;
   
-  // Delay berbeda hanya untuk memulai interval, bukan tampilan pertama
+  // Delay berbeda hanya untuk memulai interval, bukan tampilan pertama oke
   const delay = i * 2500; // contoh: slider ke-2 mulai auto-slide 2,5 detik kemudian
 
   // === Buat tombol kotak angka ===
@@ -53,3 +53,4 @@ document.querySelectorAll('.image-slider').forEach((slider, i) => {
     startInterval();
   }, delay);
 });
+
