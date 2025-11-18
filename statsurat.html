@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Status Surat Akademik</title>
+
+  <!-- STYLE UTAMA -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/csstitlecode/statsurat.css" />
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="images/pfp/avp1.png" alt="Logo FMIPA Untan">
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" onclick="openGoogleForm('https://bioijazah.pduntan.id')">Bioijazah</a></li>
+          <li><a href="#" onclick="openGoogleForm('https://satu.untan.ac.id/')">Satu Untan</a></li>
+
+        </ul>
+      </nav>
+    </div>
+
+    <!-- JAM REALTIME -->
+    <div class="clock-header">
+      <span id="tanggal"></span> | <span id="jam"></span>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- SEARCH FORM -->
+  <div class="search-container">
+    <div class="search-title">Cek Status Surat Akademik</div>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" class="search-input" placeholder="Masukkan Nama atau NIM...">
+      <button class="search-btn" onclick="cariSurat()">Cari</button>
+    </div>
+  </div>
+  <div id="hasil"></div>
+<!-- frame modal-->
+  <div id="pdfModal" class="pdf-modal">
+  <div class="pdf-modal-content">
+    <div class="pdf-toolbar">
+      <button onclick="printPDF()">🖨 Print</button>
+      <a id="downloadPDF" target="_blank">⬇ Download</a>
+      <button onclick="closePDF()">✖ Close</button>
+    </div>
+
+    <iframe id="pdfFrame" class="pdf-frame"></iframe>
+  </div>
+</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="font-size:12px; color:#888;">Copyright © FMIPA UNTAN</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="js/menu.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/jstitlecode/tableapi.js"></script>
+
+</body>
+</html>
