@@ -3,7 +3,7 @@
 // ==============================
 
 // API untuk data sheet (JSON)
-const API_URL = "https://script.google.com/macros/s/AKfycbzFHP6Pf2dE_FPuaspvDc1MQ4pxhAYORmmn0P3KtwKL-K8vMIWMHoLecDoUvYJIBQwW/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwxcDtQ8r23mxdwGFquU66MR0y3lGU2hwCYkcbaLWc5iGsq5rHP3gN5Y_acVo1oQ9sm/exec";
 
 // ==============================
 // LOAD DATA DARI GOOGLE SHEET
@@ -51,8 +51,8 @@ async function cariSurat() {
         <td>${row.nim}</td>
         <td>${row.surat}</td>
         <td>
-          <button class="lihat-file-btn" onclick="openPDF('${row.file}')">
-            Lihat File
+          <button class="lihat-file-btn" onclick="openQR('${row.file}')">
+          Lihat File
           </button>
         </td>
       </tr>
@@ -79,22 +79,38 @@ function extractFileId(url) {
   return null;
 }
 
-// ==============================
-// BUKA POPUP PDF
-// ==============================
-function openPDF(fileUrl) {
+//fungsi qrcode
+function openQR(fileUrl) {
   const fileId = extractFileId(fileUrl);
-
   if (!fileId) {
     alert("File ID tidak valid!");
     return;
   }
 
-  const viewerURL = `https://drive.google.com/file/d/${fileId}/view`;
+  const previewURL = `https://drive.google.com/uc?id=${fileId}&export=view`;
+  const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=400x400&chl=${encodeURIComponent(previewURL)}`;
 
-  window.open(
-    viewerURL,
-    "_blank",
-    "width=900,height=700,top=50,left=150,resizable=yes,scrollbars=yes"
-  );
+  document.getElementById("qrModal").style.display = "flex";
+  document.getElementById("qrImage").src = qrURL;
+  document.getElementById("qrLinkText").textContent = previewURL;
+
+  // Fallback jika Google Chart gagal
+  document.getElementById("qrImage").onerror = () => {
+    document.getElementById("qrImage").src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
+      encodeURIComponent(previewURL);
+  };
+
+  window._lastQRLink = previewURL;
+}
+
+//untuk buka dan tutup
+function closeQR() {
+  document.getElementById("qrModal").style.display = "none";
+}
+
+function copyQRLink() {
+  navigator.clipboard.writeText(window._lastQRLink)
+    .then(() => alert("Link berhasil disalin"))
+    .catch(() => alert("Gagal menyalin link"));
 }
