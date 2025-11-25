@@ -3,18 +3,19 @@ body {
   background: #ffffff;
   font-family: 'Coinbase', sans-serif;
   overflow-x: hidden;
-  
 }
+
 header {
-    background: transparent !important;
+  background: transparent !important;
 }
+
 header,
 .card-container,
 .search-container,
 #hasil,
 footer {
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }
 
 /* === BACKGROUND GRID === */
@@ -26,17 +27,14 @@ footer {
   height: 100vh;
 
   background-image: url("../../images/pfp/download.png");
-  background-size: cover;        /* memenuhi seluruh layar */
-  background-repeat: no-repeat;  /* jangan repeat */
-  background-position: center;   /* selalu center */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   opacity: 0.25;
   pointer-events: none;
   z-index: -9999;
 }
-
-
-
 
 /* === CARD 3D CONTAINER === */
 .card-container {
@@ -103,153 +101,142 @@ footer {
   pointer-events: none;
 }
 
-    .search-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 2px auto 40px;
-      text-align: center;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .search-input {
-      background-color: #f0f0f0;
-      width: 100%;
-      padding: 12px 20px;
-      border: 2px solid transparent;   /* border harus ada */
-      border-radius: 8px;
-      font-size: 16px;
-      outline: none;                    /* hilangkan outline default */
-      transition: 0.2s ease;
-    }
-
-    .search-input:focus {
-      border-color: #0000ff;  
-    }
-
-    .search-btn {
-      padding: 12px 20px;
-      background: #000000;
-      color: #fff;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-
-    .search-btn:hover {
-      background: #0000ff;
-      transform: scale(1.05);
-    }
-	
-	/* HASIL TABEL */
-    .result-table {
-      margin: 20px auto;
-      width: 90%;
-      max-width: 800px;
-      border-collapse: collapse;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .result-table th,
-    .result-table td {
-      border: 2px solid #0000ff;
-      padding: 10px;
-      text-align: left;
-      font-size: 15px;
-    }
-
-    .result-table th {
-      background: #0000ff;
-      color: white;
-      font-weight: bold;
-    }
-
-    .no-result {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 18px;
-      color: red;
-    }
-
-    .loading {
-      text-align: center;
-      font-size: 16px;
-      margin-top: 15px;
-      color: #0000ff;
-    }
-
-    
-/* === QR MODAL (Minimalis Putih) === */
-
-.qr-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
+/* === SEARCH BAR === */
+.search-container {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 99999;
-}
-
-.qr-modal-content {
-  background: #ffffff;
-  padding: 25px;
-  width: 90%;
-  max-width: 420px;
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+  gap: 10px;
+  margin: 2px auto 40px;
   text-align: center;
-  animation: fadeIn 0.25s ease;
+  width: 100%;
+  max-width: 800px;
 }
 
-.qr-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #333;
+.search-input {
+  background-color: #f0f0f0;
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s ease;
 }
 
-.qr-image {
-  width: 280px;
-  height: 280px;
-  margin: 15px auto;
+.search-input:focus {
+  border-color: #0000ff;
 }
 
-.qr-link-container {
-  word-break: break-all;
-  font-size: 12px;
-  color: #444;
-  margin: 10px 0;
-}
-
-.qr-copy-btn {
-  margin-top: 6px;
-  padding: 6px 12px;
-  border: 1px solid #0000ff;
-  background: white;
-  color: #0000ff;
-  border-radius: 6px;
+.dropdown-surat {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  outline: none;
   cursor: pointer;
+  min-width: 210px;
+  transition: 0.2s ease;
 }
 
-.qr-close-btn {
-  margin-top: 18px;
+.dropdown-surat:focus {
+  border-color: #0000ff;
+}
+
+.search-btn {
+  padding: 12px 20px;
+  background: #000000;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.search-btn:hover {
+  background: #0000ff;
+  transform: scale(1.05);
+}
+
+/* INPUT ERROR */
+.input-error {
+  border-color: red !important;
+  background-color: #ffecec !important;
+  animation: shake 0.25s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+/* PESAN ERROR & LOADING */
+.search-error {
+  text-align: center;
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 15px;
+  color: #0000ff;
+}
+
+/* HASIL TABEL */
+.result-table {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  border-collapse: collapse;
+  animation: fadeIn 0.4s ease;
+  background: #ffffffee;
+}
+
+.result-table th,
+.result-table td {
+  border: 2px solid #0000ff;
+  padding: 10px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.result-table th {
   background: #0000ff;
   color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  width: 100%;
-  border: none;
-  cursor: pointer;
+  font-weight: bold;
 }
 
-/* biartampilkatenye */
-#qrImage {
-  width: 280px !important;
-  height: 280px !important;
-  display: block !important;
-  margin: 0 auto !important;
+.no-result {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: red;
+}
+
+.lihat-file-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #000;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.lihat-file-btn:hover {
+  background: #0000ff;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
