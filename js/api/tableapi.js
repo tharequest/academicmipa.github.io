@@ -3,7 +3,7 @@
 // ==============================
 
 // API dari Google Apps Script
-const API_URL = "https://script.google.com/macros/s/AKfycbwxcDtQ8r23mxdwGFquU66MR0y3lGU2hwCYkcbaLWc5iGsq5rHP3gN5Y_acVo1oQ9sm/exec";
+const API_URL = "https://asma-backend-production.up.railway.app/api/surat/all";
 
 
 // ==============================
@@ -136,5 +136,6 @@ dropdownSurat.addEventListener("change", () => {
   const placeholder = dropdownSurat.querySelector('option[value=""]');
   if (placeholder) placeholder.remove();
 });
+
 
 
