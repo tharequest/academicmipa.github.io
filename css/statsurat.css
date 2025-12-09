@@ -196,23 +196,46 @@ footer {
   margin: 20px auto;
   width: 90%;
   max-width: 800px;
-  border-collapse: collapse;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  background: #f5fbff;          /* biru sangat muda */
+  border-radius: 10px;
+  overflow: hidden;             /* biar radius kepotong rapi */
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
   animation: fadeIn 0.4s ease;
-  background: #ffffffee;
 }
 
 .result-table th,
 .result-table td {
-  border: 2px solid #0000ff;
-  padding: 10px;
-  text-align: left;
-  font-size: 15px;
+  padding: 10px 14px;
+  font-size: 14px;
+  text-align: center;           /* kalau mau rata tengah */
+  border: none;                 /* hilangkan border kotak biru */
 }
 
-.result-table th {
-  background: #0000ff;
-  color: white;
-  font-weight: bold;
+/* header biru penuh */
+.result-table thead th {
+  background: #27b4ff;          /* biru header */
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* baris body warna biru muda */
+.result-table tbody tr {
+  background: #f5fbff;
+}
+
+/* efek strip halus antar baris */
+.result-table tbody tr:nth-child(even) {
+  background: #e9f5ff;
+}
+
+/* garis pemisah horizontal tipis seperti di contoh */
+.result-table tbody tr + tr td {
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .no-result {
@@ -221,6 +244,14 @@ footer {
   font-size: 18px;
   color: red;
 }
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 15px;
+  color: #0000ff;
+}
+
 
 .lihat-file-btn {
   padding: 6px 12px;
@@ -240,3 +271,4 @@ footer {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
