@@ -1,56 +1,88 @@
+// js/button.js — perbaikan interval + debounce
 document.querySelectorAll('.image-slider').forEach((slider, i) => {
-  const images = slider.querySelectorAll('img');
-  const nav = slider.querySelector('.slider-nav');
-  let current = 0;
-  let interval;
-  
-  // Delay berbeda hanya untuk memulai interval, bukan tampilan pertama oke
-  const delay = i * 2500; // contoh: slider ke-2 mulai auto-slide 2,5 detik kemudian
+  const images = Array.from(slider.querySelectorAll('img'));
+  const nav = slider.querySelector('.slider-nav') || (function(){
+    const el = document.createElement('div');
+    el.className = 'slider-nav';
+    slider.appendChild(el);
+    return el;
+  })();
 
-  // === Buat tombol kotak angka ===
-  images.forEach((img, index) => {
+  let current = 0;
+  let intervalId = null;
+  let restartTimeout = null;
+  const delayStart = i * 2500; // stagger start if multiple sliders
+
+  // create nav buttons
+  images.forEach((img, idx) => {
     const btn = document.createElement('button');
-    btn.textContent = (index + 1).toString().padStart(2, '0');
+    btn.type = 'button';
+    btn.textContent = String(idx + 1).padStart(2, '0');
+
+    // simple click debounce to avoid double rapid clicks
+    let clickDisabled = false;
     btn.addEventListener('click', e => {
       e.preventDefault();
-      e.stopImmediatePropagation(); // cegah popup
-      showSlide(index);
+      e.stopPropagation();
+      if (clickDisabled) return;
+      clickDisabled = true;
+      setTimeout(() => { clickDisabled = false; }, 300); // 300ms debounce
+
+      showSlide(idx);
       resetInterval();
     });
     nav.appendChild(btn);
   });
 
-  const buttons = nav.querySelectorAll('button');
+  const navButtons = Array.from(nav.querySelectorAll('button'));
+
+  function updateNav() {
+    navButtons.forEach((b, idx) => {
+      b.classList.toggle('active', idx === current);
+    });
+  }
 
   function showSlide(index) {
-    images[current].classList.remove('active');
-    buttons[current].classList.remove('active');
+    images.forEach((img, idx) => img.classList.toggle('active', idx === index));
     current = index;
-    images[current].classList.add('active');
-    buttons[current].classList.add('active');
+    updateNav();
   }
 
   function startInterval() {
-    interval = setInterval(() => {
-      let next = (current + 1) % images.length;
+    // pastikan tidak ada interval ganda
+    clearInterval(intervalId);
+    intervalId = setInterval(() => {
+      const next = (current + 1) % images.length;
       showSlide(next);
     }, 5000);
   }
 
   function resetInterval() {
-    clearInterval(interval);
-    startInterval();
+    // clear existing interval and any pending restart
+    clearInterval(intervalId);
+    intervalId = null;
+    if (restartTimeout) clearTimeout(restartTimeout);
+
+    // beri jeda singkat sebelum memulai lagi agar klik tidak langsung "ditimpa"
+    restartTimeout = setTimeout(() => {
+      startInterval();
+      restartTimeout = null;
+    }, 700); // 700ms tunggu sebelum mulai ulang
   }
 
-  slider.addEventListener('mouseenter', () => clearInterval(interval));
-  slider.addEventListener('mouseleave', () => startInterval());
+  // pause on hover
+  slider.addEventListener('mouseenter', () => {
+    clearInterval(intervalId);
+    intervalId = null;
+    if (restartTimeout) { clearTimeout(restartTimeout); restartTimeout = null; }
+  });
+  slider.addEventListener('mouseleave', () => {
+    // start after small delay to avoid instant flip
+    if (restartTimeout) clearTimeout(restartTimeout);
+    restartTimeout = setTimeout(() => { startInterval(); restartTimeout = null; }, 500);
+  });
 
-  // === Inisialisasi: tampilkan slide pertama langsung ===
+  // init
   showSlide(0);
-
-  // === Jalankan auto-slide dengan delay berbeda antar slider ===
-  setTimeout(() => {
-    startInterval();
-  }, delay);
+  setTimeout(startInterval, delayStart);
 });
-
