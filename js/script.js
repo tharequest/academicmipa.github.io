@@ -51,7 +51,3 @@ function createSlider(sliderId, interval = 3000) {
     slides[index].classList.add("active");
   }, interval);
 }
-
-// Jalankan kedua slider
-createSlider("slider-pengumuman", 8000);
-createSlider("slider-akademik", 8000);
