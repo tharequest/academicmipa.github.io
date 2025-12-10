@@ -54,7 +54,7 @@ document.querySelectorAll('.image-slider').forEach((slider, i) => {
     intervalId = setInterval(() => {
       const next = (current + 1) % images.length;
       showSlide(next);
-    }, 5000);
+    }, 6500);
   }
 
   function resetInterval() {
@@ -86,3 +86,4 @@ document.querySelectorAll('.image-slider').forEach((slider, i) => {
   showSlide(0);
   setTimeout(startInterval, delayStart);
 });
+
