@@ -22,7 +22,13 @@ document.querySelectorAll(".image-slider img").forEach(img => {
 function openPopup() {
   popup.style.display = "flex";
   popupImg.src = popupImages[popupIndex];
+
+  // nonaktifkan panah kalau hanya 1 gambar
+  document.querySelector(".popup-prev").style.display =
+  document.querySelector(".popup-next").style.display =
+    popupImages.length > 1 ? "block" : "none";
 }
+
 
 function closePopup() {
   popup.style.display = "none";
