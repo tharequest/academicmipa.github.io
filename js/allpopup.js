@@ -65,3 +65,26 @@ btnPrev.onclick = () => {
   popupIndex = (popupIndex - 1 + popupImages.length) % popupImages.length;
   popupImg.src = popupImages[popupIndex];
 };
+
+// === Popup Google Form ===
+function openGoogleForm(url) {
+  window.open(
+    url,
+    "popupForm",
+    "width=700,height=800,scrollbars=yes,resizable=yes"
+  );
+}
+
+// === Popup PDF ===
+function openPDFPopup(pdfUrl) {
+  const width = 800;
+  const height = 600;
+  const left = (screen.width / 2) - (width / 2);
+  const top = (screen.height / 2) - (height / 2);
+
+  window.open(
+    pdfUrl,
+    "_blank",
+    `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`
+  );
+}
