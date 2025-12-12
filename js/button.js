@@ -17,7 +17,7 @@ document.querySelectorAll('.image-slider').forEach((slider, i) => {
   images.forEach((img, idx) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.textContent = String(idx + 1).padStart(2, '0');
+    btn.textContent = "";
 
     // simple click debounce to avoid double rapid clicks
     let clickDisabled = false;
@@ -86,4 +86,5 @@ document.querySelectorAll('.image-slider').forEach((slider, i) => {
   showSlide(0);
   setTimeout(startInterval, delayStart);
 });
+
 
