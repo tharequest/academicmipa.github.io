@@ -46,3 +46,11 @@ popupClose.addEventListener("click", closePopup);
 popup.addEventListener("click", (e) => {
   if (e.target === popup) closePopup();
 });
+
+// === Buka popup untuk satu gambar (dropdown) ===
+function openPopupSingle(src) {
+  popupImages = [src]; // hanya satu gambar
+  popupIndex = 0;
+  openPopup();
+}
+
