@@ -22,6 +22,57 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
+/* === Popup Slider === */
+.popup-slider {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 999999;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-image {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 12px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Panah kiri–kanan */
+.popup-prev, .popup-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 60px;
+  font-weight: bold;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  user-select: none;
+}
+
+.popup-prev { left: 40px; }
+.popup-next { right: 40px; }
+
+.popup-prev:hover, .popup-next:hover {
+  color: #428bff;
+  transform: translateY(-50%) scale(1.15);
+}
+
+
 .close {
   position: absolute;
   top: 20px;
@@ -36,3 +87,4 @@
   from {opacity: 0;}
   to {opacity: 1;}
 }
+
