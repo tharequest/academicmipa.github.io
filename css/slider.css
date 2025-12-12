@@ -1,4 +1,4 @@
-/* === Slider Main Layout === */
+  /* === Slider Main Layout === */
 main.slider-layout {
   display: flex;
   justify-content: center;
@@ -140,6 +140,7 @@ main.slider-layout {
   cursor: pointer;
   padding: 0;
   transition: all 0.25s ease;
+  pointer-events: auto !important;
 }
 
 .slider-nav button:hover {
@@ -151,5 +152,6 @@ main.slider-layout {
   background: #0000ff;   /* biru FMIPA */
   transform: scale(1.35);
 }
+
 
 
