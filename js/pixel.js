@@ -25,7 +25,7 @@ const fontMap = {
 };
 
 const pixelConfig = {
-  text: "AKADEMIK* FMIPA* UNTAN*",
+  text: "AKADEMIK* FMIPA*",
   pixelSize: 5,
   spacing: 2,
   charSpacing: 10,
@@ -146,3 +146,4 @@ function initPixelCanvas(canvasId, direction="left-to-right"){
 
   draw();
 }
+
