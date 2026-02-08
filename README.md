@@ -7,6 +7,7 @@ A static academic website for the Faculty of Mathematics and Natural Sciences (M
 ---
 
 ## 📁 Project Structure
+- [Project Structure](#-project-structure)
 
 ---
 
