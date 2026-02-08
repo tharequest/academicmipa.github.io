@@ -53,8 +53,8 @@ If there are any licensing concerns, please contact the repository owner for adj
    ```bash
    git clone https://github.com/tharequest/academmicmipa.github.io.git
 2. Navigate to the project directory:
-```bash
-cd academmicmipa.github.io
+   ```bash
+   cd academmicmipa.github.io
 
 3. Open index.html directly in your browser
 or use a local development server (e.g., VS Code Live Server).
