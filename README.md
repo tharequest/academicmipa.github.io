@@ -7,8 +7,14 @@ A static academic website for the Faculty of Mathematics and Natural Sciences (M
 ---
 
 ## 📁 Project Structure
-- [Project Structure](#-project-structure)
 
+- css/
+- js/
+- images/
+- fonts/
+- index.html
+- statsurat.html
+- README.md
 ---
 
 ## ✨ Features
