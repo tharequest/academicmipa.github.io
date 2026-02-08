@@ -7,17 +7,7 @@ A static academic website for the Faculty of Mathematics and Natural Sciences (M
 ---
 
 ## 📁 Project Structure
-academmicmipa.github.io/
 
-css/ # Stylesheets
-js/ # JavaScript files
-images/ # Images & photo uploads
-fonts/ # External fonts (Coinbase Sans)
-│
-index.html # Main page
-statsurat.html # Statistics / document page
-.gitattributes
-README.md
 ---
 
 ## ✨ Features
