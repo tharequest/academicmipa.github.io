@@ -28,7 +28,7 @@ A static academic website for the Faculty of Mathematics and Natural Sciences (M
 - 🖋️ **Custom Font Integration**
   - Uses **Coinbase Sans** for a modern and professional look
 
----
+----
 
 ## 🔤 Font Attribution & License Notice
 
@@ -42,7 +42,7 @@ This project uses the **Coinbase Sans** font.
 
 If there are any licensing concerns, please contact the repository owner for adjustments or removal.
 
----
+----
 
 ## 🚀 Running Locally
 
@@ -56,7 +56,7 @@ If there are any licensing concerns, please contact the repository owner for adj
 3. Open index.html directly in your browser
 or use a local development server (e.g., VS Code Live Server).
 
----
+----
 
 🛠️ Built With
 
