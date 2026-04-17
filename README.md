@@ -4,7 +4,7 @@ A static academic website for the Faculty of Mathematics and Natural Sciences (M
 
 ## 🌐 Live Demo
 👉 https://fmipa-portalacademic-edu.vercel.app/
----
+----
 
 ## 📁 Project Structure
 
